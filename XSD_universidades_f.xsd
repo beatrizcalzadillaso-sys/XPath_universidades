@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+    <xsd:element name="nombre" type= "xsd:string"/>
+    
+    <xsd:element name="pais" type="xsd:string"/>
+    
+    <xsd:element name="carreras">
+        <xsd:complexType>
+            <xsd:attribute name="id" type="xsd:string" use="required"/>           
+                <xsd:element name="carrera" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="nombre" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                            <xsd:element name="plan" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+                            <xsd:element name="creditos" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+                            <xsd:element name="centro" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>        
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

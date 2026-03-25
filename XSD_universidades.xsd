@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="universidad">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="nombre" type="xsd:string"/>
+                <xsd:element name="pais" type="xsd:string"/>
+
+                <xsd:element name="carreras">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="carrera" minOccurs="1" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="nombre" type="xsd:string"/>
+                                        <xsd:element name="plan" type="xsd:integer"/>
+                                        <xsd:element name="creditos" type="xsd:integer"/>
+                                        <xsd:element name="centro" type="xsd:string"/>
+                                        <xsd:element name="subdirector" type="xsd:string" minOccurs="0"/>
+                                    </xsd:sequence>
+                                    <xsd:attribute name="id" type="xsd:string" use="required"/>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+
+                <xsd:element name="asignaturas">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="asignatura" minOccurs="1" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="nombre" type="xsd:string"/>
+                                        <xsd:element name="creditos_teoricos" type="xsd:decimal"/>
+                                        <xsd:element name="creditos_practicos" type="xsd:decimal"/>
+                                        <xsd:element name="trimestre" type="xsd:integer"/>
+                                    </xsd:sequence>
+                                    <xsd:attribute name="id" type="xsd:string" use="required"/>
+                                    <xsd:attribute name="titulacion" type="xsd:string" use="required"/>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+
+                <xsd:element name="alumnos">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="alumno" minOccurs="1" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="apellido1" type="xsd:string"/>
+                                        <xsd:element name="apellido2" type="xsd:string"/>
+                                        <xsd:element name="nombre" type="xsd:string"/>
+                                        <xsd:element name="sexo" type="xsd:string"/>
+                                        <xsd:element name="estudios">
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="carrera">
+                                                        <xsd:complexType>
+                                                            <xsd:attribute name="codigo" type="xsd:string" use="required"/>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element name="asignaturas">
+                                                        <xsd:complexType>
+                                                            <xsd:sequence>
+                                                                <xsd:element name="asignatura" minOccurs="1" maxOccurs="unbounded">
+                                                                    <xsd:complexType>
+                                                                        <xsd:attribute name="codigo" type="xsd:string" use="required"/>
+                                                                    </xsd:complexType>
+                                                                </xsd:element>
+                                                            </xsd:sequence>
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                    <xsd:element name="proyecto" type="xsd:string" minOccurs="0"/>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                    <xsd:attribute name="id" type="xsd:string" use="required"/>
+                                    <xsd:attribute name="beca" type="xsd:string" use="optional"/>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+
+            </xsd:sequence>
+            <xsd:anyAttribute namespace="http://www.w3.org/2001/XMLSchema-instance" processContents="lax"/>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>
